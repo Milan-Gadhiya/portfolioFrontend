@@ -1,6 +1,5 @@
 import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
-// import { Link } from "react-router-dom";
 import Header from "../Components/header/Header";
 import Services from "../servicesData";
 import {
@@ -8,18 +7,27 @@ import {
   HomeIndustry,
 } from "../Components/servisesComponents/serviceComponents";
 import ContactComponent from "../Components/contactComponent/ContactComponent";
-import WebsiteData from "../data/WebsiteData";
 import RecentWeb from "../Components/recentsComponents/RecentWeb";
+import LoadingBox from "../Components/boxes/LoadingBox";
+import MessageBox from "../Components/boxes/MessageBox";
+import { useSelector } from "react-redux";
 
 export default function HomeScreen() {
+  const websiteList = useSelector((state) => state.websiteList);
+  console.log(websiteList);
+  const { loading: webLoading, error: webError, websites: websites } = websiteList;
+
+  // const appLists = useSelector((state) => state.appLists);
+  // const { loading, error, apps } = appLists;
+
   return (
     <>
       {/* HEADER */}
       <Header bgColor="black" />
 
       {/* HOME SCREEN */}
-      <div class="Mainbackground" id="home">
-        <div class="topBackground"></div>
+      <div className="Mainbackground" id="home">
+        <div className="topBackground"></div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="#001517"
@@ -28,10 +36,10 @@ export default function HomeScreen() {
           ></path>
         </svg>
 
-        <div class="container fluids">
-          <div class="row">
-            <div class="col-md-12 col-lg-6">
-              <div class="screenWords">
+        <div className="container fluids">
+          <div className="row">
+            <div className="col-md-12 col-lg-6">
+              <div className="screenWords">
                 <h1>Hello, I'm Milan.</h1>
                 <p>
                   Welcome to my portfolio! I'm Milan Gadhiya, a full-stack
@@ -40,23 +48,103 @@ export default function HomeScreen() {
                   proud to be Azure Fundamentals certified, and you can reach me
                   at milan.gadhiya2000@gmail.com.
                 </p>
-                {/* <div class="twoMainButton">
-                  <div class="buttonMain">
+                {/* <div className="twoMainButton">
+                  <div className="buttonMain">
                     <Link to="/app">Mobile Apps</Link>
-                    <div class="hrizontalLine"></div>
+                    <div className="hrizontalLine"></div>
                   </div>
-                  <div class="buttonMain">
+                  <div className="buttonMain">
                     <Link to="/website">Websites</Link>
-                    <div class="hrizontalLine diff"></div>
+                    <div className="hrizontalLine diff"></div>
                   </div>
                 </div> */}
               </div>
             </div>
-            {/* <div class="col-md-12 col-lg-6">
-              <div class="screenImage">
+            {/* <div className="col-md-12 col-lg-6">
+              <div className="screenImage">
                 <img src="./images/img1.jpg" alt="Milanjnjn" />
               </div>
             </div> */}
+          </div>
+        </div>
+      </div>
+      
+
+      {/* ABOUT */}
+      <section id="about">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="row">
+                <div className="col-md-6 aboutMeImgAdjust">
+                  <div className="aboutMeImg">
+                    <img src="./images/about.png" alt="about me" />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="about-me">
+                    <h5>About me</h5>
+                    <div className="aboutHorizontalLine"></div>
+                    <p>
+                      I am a dedicated full-stack developer with a strong
+                      foundation in C#, .NET, and the MERN stack—MongoDB,
+                      Express.js, React, and Node.js. My expertise lies in
+                      building scalable applications and integrating AI-driven
+                      solutions to tackle complex challenges.
+                    </p>
+                    <p>
+                      With a passion for crafting responsive user interfaces and
+                      optimizing database performance, I excel in dynamic
+                      environments where collaboration and problem-solving
+                      skills are crucial. My background in Computer Engineering
+                      and studies in software engineering have equipped me with
+                      a diverse skill set and a commitment to continuous
+                      learning.
+                    </p>
+                    <p>
+                      I am driven by innovation and enjoy applying AI and
+                      machine learning technologies to create impactful software
+                      solutions. Whether developing serverless applications or
+                      scalable web and mobile platforms, I aim to deliver
+                      excellence and drive meaningful outcomes.
+                    </p>
+                    <p>
+                      Let's connect and explore how we can innovate together.
+                      Feel free to reach out to me on{" "}
+                      <a
+                        href="https://www.linkedin.com/in/milan-gadhiya-16425b188/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        LinkedIn
+                      </a>{" "}
+                      to start a conversation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RECENT WORK */}
+      <div className="container" id="projects">
+        <div className="article">
+          <h2>Projects</h2>
+          <hr />
+          <div className="rows">
+            {webLoading ? (
+              <LoadingBox></LoadingBox>
+            ) : webError ? (
+              <MessageBox variant="danger">{webError}</MessageBox>
+            ) : (
+              <div className="row">
+                {websites.slice(0, 6).map((website) => (
+                  <RecentWeb key={website.id} website={website} />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -122,82 +210,11 @@ export default function HomeScreen() {
         </div>
       </div>
 
-      {/* ABOUT */}
-      <section id="about">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="row">
-                <div class="col-md-6 aboutMeImgAdjust" >
-                  <div class="aboutMeImg">
-                    <img src="./images/about.png" alt="about me" />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="about-me">
-                    <h5>About me</h5>
-                    <div class="aboutHorizontalLine"></div>
-                    <p>
-                      I am a dedicated full-stack developer with a strong
-                      foundation in C#, .NET, and the MERN stack—MongoDB,
-                      Express.js, React, and Node.js. My expertise lies in
-                      building scalable applications and integrating AI-driven
-                      solutions to tackle complex challenges.
-                    </p>
-                    <p>
-                      With a passion for crafting responsive user interfaces and
-                      optimizing database performance, I excel in dynamic
-                      environments where collaboration and problem-solving
-                      skills are crucial. My background in Computer Engineering
-                      and studies in software engineering have equipped me with
-                      a diverse skill set and a commitment to continuous
-                      learning.
-                    </p>
-                    <p>
-                      I am driven by innovation and enjoy applying AI and
-                      machine learning technologies to create impactful software
-                      solutions. Whether developing serverless applications or
-                      scalable web and mobile platforms, I aim to deliver
-                      excellence and drive meaningful outcomes.
-                    </p>
-                    <p>
-                      Let's connect and explore how we can innovate together.
-                      Feel free to reach out to me on{" "}
-                      <a
-                        href="https://www.linkedin.com/in/milan-gadhiya-16425b188/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        LinkedIn
-                      </a>{" "}
-                      to start a conversation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* RECENT WORK */}
-      <div class="container" id="projects">
-        <div class="article">
-          <h2>Projects</h2>
-          <hr />
-          <div class="rows">
-            {WebsiteData.websites.slice(0, 6).map((website) => (
-              <RecentWeb key={website.id} website={website} />
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* CONTACT */}
-      <div class="contactme" id="contact">
-        <div class="contactOverlay">
-          <div class="container">
-            <div class="form">
+      <div className="contactme" id="contact">
+        <div className="contactOverlay">
+          <div className="container">
+            <div className="form">
               <ContactComponent />
             </div>
           </div>

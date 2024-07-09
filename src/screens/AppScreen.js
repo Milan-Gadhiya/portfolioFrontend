@@ -13,9 +13,9 @@ export default function AppScreen(props) {
     <>
       <Header />
 
-      <div class="banner">
-        <div class="overlay">
-          <div class="container">
+      <div className="banner">
+        <div className="overlay">
+          <div className="container">
             <h1>My Recent Mobile Apps</h1>
             <button>
               <a href="">Home</a>
@@ -24,13 +24,13 @@ export default function AppScreen(props) {
         </div>
       </div>
 
-      <div class="container blogcontainer">
+      <div className="container blogcontainer">
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (
           <MessageBox variant="dabger">{error}</MessageBox>
         ) : (
-          <div class="row">
+          <div className="row">
             {/* {apps.map((app) => (
               <App key={app._id} app={app} />
             ))} */}

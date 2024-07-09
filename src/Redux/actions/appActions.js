@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import { axios  } from "axios";
 import {
   APP_DETAILS_FAIL,
   APP_DETAILS_REQUEST,
@@ -10,7 +10,7 @@ export const detailApp = (appId) => async (dispatch) => {
     type: APP_DETAILS_REQUEST,
   });
   try {
-    const { data } = await Axios.get("/api/apps/${appId}");
+    const { data } = await axios.get("/api/apps/${appId}");
     dispatch({
       type: APP_DETAILS_SUCCESS,
       payload: data,

@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import axios from "axios";
 import { APP_LIST_FAIL, APP_LIST_SUCCESS } from "../constants/appConstants";
 import {
   WEBSITE_LIST_FAIL,
@@ -7,7 +7,7 @@ import {
 
 export const initialData = () => async (dispatch) => {
   try {
-    const res = await Axios.post("/api/");
+    const res = await axios.post("/api/");
     if (res.status === 200) {
       const { apps, websites } = res.data;
       dispatch({

@@ -12,9 +12,9 @@ import {
 export default function Footer() {
   return (
     <footer>
-      <div class="container">
-        <div class="footerContainer">
-          <div class="footerLogo">
+      <div className="container">
+        <div className="footerContainer">
+          <div className="footerLogo">
             <Link to="/">
               <svg
                 width="40"
@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
             {/* <img src="./assets/images/gifs/logo2.png" alt="Logo" /> */}
           </div>
-          <div class="footerNav">
+          <div className="footerNav">
             <p>
               <HashLink to="/#about">About me</HashLink>
             </p>
@@ -47,8 +47,8 @@ export default function Footer() {
               <HashLink to="/#contact">contact me</HashLink>
             </p>
           </div>
-          <div class="footerMedias">
-            <div class="footerMedia">
+          <div className="footerMedias">
+            <div className="footerMedia">
               <a
                 href="https://www.linkedin.com/in/milan-gadhiya-16425b188/"
                 target="_blank"
@@ -57,7 +57,7 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
             </div>
-            <div class="footerMedia">
+            <div className="footerMedia">
               <a
                 href="https://github.com/Milan-Gadhiya"
                 target="_blank"
@@ -66,7 +66,7 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faGithub} />
               </a>
             </div>
-            <div class="footerMedia">
+            <div className="footerMedia">
               <a
                 href="https://www.facebook.com/milan.gadhiya.92351"
                 target="_blank"
@@ -75,7 +75,7 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
             </div>
-            <div class="footerMedia">
+            <div className="footerMedia">
               <a
                 href="https://www.instagram.com/milan_gadhiya1604/"
                 target="_blank"

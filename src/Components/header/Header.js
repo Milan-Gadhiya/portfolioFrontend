@@ -5,9 +5,9 @@ import { HashLink } from "react-router-hash-link";
 export default function Header(props) {
   return (
     <header className={`header-${props.bgColor || "white"}`}>
-      <div class="container">
-        <div class="nav">
-          <div class="nav1">
+      <div className="container">
+        <div className="nav">
+          <div className="nav1">
             <Link to="/">
               <svg
                 width="40"
@@ -24,20 +24,20 @@ export default function Header(props) {
               </svg>
             </Link>
           </div>
-          <div class="nav2">
-            <div class="menu">
+          <div className="nav2">
+            <div className="menu">
               <HashLink to="/#about">about Me</HashLink>
             </div>
-            <div class="menu">
+            <div className="menu">
               <HashLink to="/#services">services</HashLink>
             </div>
-            {/* <div class="menu">
+            {/* <div className="menu">
               <a href="#">Blogs</a>
             </div> */}
-            <div class="menu">
+            <div className="menu">
               <HashLink to="/#projects">Projects</HashLink>
             </div>
-            <div class="menu">
+            <div className="menu">
               <HashLink to="/#contact">contact Me</HashLink>
             </div>
           </div>
