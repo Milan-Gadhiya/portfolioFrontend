@@ -7,7 +7,7 @@ import {
 
 export const initialData = () => async (dispatch) => {
   try {
-    const res = await axios.post("/api/");
+    const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/`);
     if (res.status === 200) {
       const { apps, websites } = res.data;
       dispatch({
